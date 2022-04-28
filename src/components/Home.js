@@ -73,7 +73,7 @@ const Content = styled.div`
     justify-content: center;
 
     h2{
-        font-size: 4rem;
+        font-size: 3rem;
         width: 60%;
 
         @media screen and (max-width: 500px){
@@ -85,7 +85,7 @@ const Content = styled.div`
     span{
         font-size: 1.2rem;
         text-decoration: underline;
-        margin-top: -50px;
+        margin-top: -20px;
 
         @media screen and (max-width: 500px){
            margin-top: -20px;
@@ -122,7 +122,7 @@ const Action = styled(Link)`
 
 const Btn = styled.div`
     display: flex;
-    width: 40%;
+    width: 60%;
     justify-content: space-between;
 
     @media screen and (max-width: 500px){

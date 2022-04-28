@@ -31,7 +31,7 @@ const Container = styled.div`
 
     @media screen and (max-width: 500px){
         height: 100%;
-        min-height: 100vh;
+        height: calc(100vh - 70px);
     }
 `;
 const Wrapper = styled.div`
@@ -63,7 +63,6 @@ const Illustration = styled.div`
     @media screen and (max-width: 500px){
         width: 100%;
         height: 250px;
-        margin-top: -90px;
     }
 `;
 

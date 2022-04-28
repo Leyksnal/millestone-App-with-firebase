@@ -5,6 +5,7 @@ import {BsImageAlt} from 'react-icons/bs'
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage'
 import { addDoc, collection } from 'firebase/firestore'
 import { database, storage } from './Base'
+import { Link } from 'react-router-dom'
 
 export default function Post() {
     const [avatar, setAvatar] = useState("")
@@ -61,18 +62,34 @@ export default function Post() {
                     setOccupation(e.target.value)
                 }}/>
             </Info>
-                <Button onClick={postData}>Send</Button>
+            <Action to={'/views'}><Button onClick={postData}>Send</Button></Action>
         </Wrapper>
     </Container>
   )
 }
 
 
+const Action = styled(Link)`
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+`;
+
 const Container = styled.div`
     display: flex;
     justify-content: center;
     height: calc(100vh - 70px);
     align-items: center;
+    width: 100%;
+
+    @media screen and (max-width: 500px){
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
 `;
 const Wrapper = styled.div`
     display: flex;
@@ -82,6 +99,10 @@ const Wrapper = styled.div`
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
     width: 50%;
     height: 90%;
+
+    @media screen and (max-width: 500px){
+        width: 90%;
+    }
 `;
 const Head = styled.div`
     display: flex;
@@ -89,6 +110,15 @@ const Head = styled.div`
     justify-content: center;
     span{
         font-size: 1.5rem;
+
+        @media screen and (max-width: 500px){
+            width: 90%;
+            font-size: 1.2rem;
+        }
+    }
+
+    @media screen and (max-width: 500px){
+        width: 100%;
     }
 `;
 const Put = styled.div`
@@ -129,6 +159,10 @@ const Button = styled.button`
         border: 3px solid #fff;
         color: #ec7d69;
     }
+
+    @media screen and (max-width: 500px){
+        width: 90%;
+    }
 `;
 const Info = styled.button`
     display: flex;
@@ -149,6 +183,10 @@ const Info = styled.button`
         outline: none;
         margin-bottom: 8px;
         font-family: 'poppins';
+
+        @media screen and (max-width: 500px){
+            width: 90%;
+        }
     }
 
     input{
@@ -161,5 +199,9 @@ const Info = styled.button`
         font-weight: 500;
         width: 95%;
         font-family: 'poppins';
+    }
+
+    @media screen and (max-width: 500px){
+        width: 90%;
     }
 `;

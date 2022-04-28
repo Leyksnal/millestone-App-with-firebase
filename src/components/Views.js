@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 import {ImFeed} from 'react-icons/im'
-import { collection, doc, onSnapshot } from 'firebase/firestore'
+import { collection, onSnapshot } from 'firebase/firestore'
 import { database } from './Base'
 
 export default function Views() {
 
-    const [render, setRender] = useState("")
+    const [render, setRender] = useState([])
 
     const getAll = async ()=>{
         const user = await collection(database, "millestone")
@@ -25,40 +25,53 @@ export default function Views() {
     }, [])
 
   return (
+    <>
         <Wall>
-            <Head><ImFeed size={'2.5rem'}/><span>Explore And Learn</span>
+            <Head><ImFeed size={'2.5rem'}/><span>Feeds</span>
             </Head>
             <Container>
-                <Wrapper>
-                    <End>
-                        <Status>
-                            <Pan></Pan>
-                            <p>Online</p>
-                        </Status>
-                    </End>
-                    <Avatar>
-                        <img src="/goal.svg" alt="" />
-                        <span>Username</span>
-                    </Avatar>
-                    <Info>
-                        <span>Location</span>
-                        <span>Age</span>
-                    </Info>
-                    <Text>
-                        <p>Many different kinds of people use React Native: from advanced iOS developers to React beginners, to people getting started programming for the first time in their career. These docs were written for all learners, no matter their experience level or background.</p>
-                    </Text>
-                </Wrapper>
+                {render?.map((props) =>{
+                    return(
+                        <Wrapper key={props.id}>
+                            <End>
+                                <Status>
+                                    <Pan></Pan>
+                                    <p>Online</p>
+                                </Status>
+                            </End>
+                            <Avatar>
+                                <img src={props.avatar} alt="" />
+                                <span>{props.userName}</span>
+                            </Avatar>
+                            <Info>
+                                <span>{props.occupation}</span>
+                                <span>{props.location}</span>
+                            </Info>
+                            <Text>
+                                <p>{props.textarea}</p>
+                            </Text>
+                        </Wrapper>
+                    )
+                })}
             </Container>
-            <Action to={'/post'}><Button>Post</Button></Action>
+            <Action to={'/'}><Button>Home</Button></Action>
         </Wall>
+    </>
   )
 }
 
 const Container = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-gap: 10px;
+
+    @media screen and (max-width: 500px){
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
 `;
 const Wrapper = styled.div`
     width: 500px;
@@ -69,12 +82,20 @@ const Wrapper = styled.div`
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
     background-color: #0D1117;
     border-radius: 20px;
+    transition: all 450ms;
+
+    :hover{
+        transform: scale(1.02);
+    }
+
+    @media screen and (max-width: 500px){
+        width: 90%;
+    }
 `;
 const Status = styled.div`
     display: flex;
     justify-content: space-around;
     align-items: center;
-    /* background-color: black; */
     width: 60px;
     height: 22px;
     border-radius: 20px;

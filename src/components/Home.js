@@ -27,11 +27,26 @@ const Container = styled.div`
     justify-content: center;
     align-items: center;
     height: calc(100vh - 70px);
+    width: 100%;
+
+    @media screen and (max-width: 500px){
+        height: 100%;
+        min-height: 100vh;
+    }
 `;
 const Wrapper = styled.div`
     display: flex;
     width: 90%;
     justify-content: space-between;
+
+    @media screen and (max-width: 500px){
+        display: flex;
+        flex-direction: column-reverse;
+        min-height: 100vh;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+    }
 `;
 const Illustration = styled.div`
     width: 700px;
@@ -44,6 +59,12 @@ const Illustration = styled.div`
         height: 100%;
         object-fit: cover;
     }
+
+    @media screen and (max-width: 500px){
+        width: 100%;
+        height: 250px;
+        margin-top: -90px;
+    }
 `;
 
 const Content = styled.div`
@@ -54,12 +75,25 @@ const Content = styled.div`
     h2{
         font-size: 4rem;
         width: 60%;
+
+        @media screen and (max-width: 500px){
+            font-size: 2.5rem;
+            width: 100%;
+        }
     }
 
     span{
         font-size: 1.2rem;
         text-decoration: underline;
         margin-top: -50px;
+
+        @media screen and (max-width: 500px){
+           margin-top: -20px;
+        }
+    }
+
+    @media screen and (max-width: 500px){
+        width: 100%;
     }
 `;
 const Button = styled.button`
@@ -90,4 +124,10 @@ const Btn = styled.div`
     display: flex;
     width: 40%;
     justify-content: space-between;
+
+    @media screen and (max-width: 500px){
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
 `;

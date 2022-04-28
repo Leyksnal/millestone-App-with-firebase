@@ -36,21 +36,19 @@ const Container = styled.div`
 `;
 const Wrapper = styled.div`
     display: flex;
-    width: 90%;
+    width: 80%;
     justify-content: space-between;
 
     @media screen and (max-width: 500px){
         display: flex;
         flex-direction: column-reverse;
-        min-height: 100vh;
-        height: 100%;
         justify-content: center;
         align-items: center;
     }
 `;
 const Illustration = styled.div`
-    width: 700px;
-    height: 500px;
+    width: 600px;
+    height: 400px;
     border: solid 4px #fff;
     border-radius: 10px;
 

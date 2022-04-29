@@ -62,7 +62,7 @@ export default function Views() {
 
 const Container = styled.div`
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     grid-gap: 10px;
 
     @media screen and (max-width: 500px){
@@ -74,7 +74,7 @@ const Container = styled.div`
     }
 `;
 const Wrapper = styled.div`
-    width: 500px;
+    /* width: 500px; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -145,8 +145,12 @@ const Text = styled.div`
     margin: 10px;
 
     p{
-        width: 90%;
+        width: 100%;
         font-size: 1rem;
+
+        @media screen and (max-width: 500px){
+            width: 90%;
+        }
     }
 `;
 const End = styled.div`

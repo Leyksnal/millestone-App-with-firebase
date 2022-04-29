@@ -8,7 +8,7 @@ export default function Home() {
         <Wrapper>
             <Content>
                 <h2>Welcome to Millestone !</h2>
-                <span>Tell us your Goal for this year and let us know your Millestone</span>
+                <span>Tell us about your proffesssion <strong>Millestone</strong> will connect you with people that needs your products and services.</span>
                 <Btn>
                     <Action to={'/post'}><Button>Post Now</Button></Action>
                     <Action to={'/views'}><Button>Feeds</Button></Action>
@@ -83,6 +83,7 @@ const Content = styled.div`
         font-size: 1.2rem;
         text-decoration: underline;
         margin-top: -20px;
+        width: 300px;
 
         @media screen and (max-width: 500px){
            margin-top: -20px;

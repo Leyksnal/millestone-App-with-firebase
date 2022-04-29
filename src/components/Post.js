@@ -41,7 +41,8 @@ export default function Post() {
   return (
     <Container>
         <Wrapper>
-            <Head><FiEdit size={'2.5rem'}/> <span> Share your goals and Millestone</span></Head>
+            <Head> <FiEdit size={'2.5rem'}/>Share your profile to network
+            </Head>
             <Put>
                 <label>
                     <BsImageAlt size={'3rem'}/>
@@ -108,17 +109,10 @@ const Head = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    span{
-        font-size: 1.5rem;
-
-        @media screen and (max-width: 500px){
-            width: 90%;
-            font-size: 1.2rem;
-        }
-    }
 
     @media screen and (max-width: 500px){
-        width: 100%;
+        width: 90%;
+        font-size: 1.2rem;
     }
 `;
 const Put = styled.div`
@@ -130,11 +124,16 @@ const Put = styled.div`
         width: 120px;
         height: 120px;
         border-radius: 50%;
-        background-color: green;
+        background-color: black;
         cursor: pointer;
         display: flex;
         justify-content: center;
         align-items: center;
+        transition: all 450ms;
+
+        :hover{
+            transform: scale(0.9);
+        }
     }
 
     input{
